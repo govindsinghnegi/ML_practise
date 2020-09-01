@@ -1,0 +1,191 @@
+rfc = RandomForestClassifier(random_state=42, n_estimators=1000)
+
+param_rf = {
+    'max_features': ['sqrt', 'log2'],
+    'max_depth': [15, 30]
+}
+
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8583
+Final F-score on the testing data: 0.7305
+
+------------------------------------
+rfc = RandomForestClassifier(random_state=42, n_estimators=500)
+
+param_rf = {
+    'max_features': ['sqrt', 'log2'],
+    'max_depth': [15, 30]
+}
+
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8580
+Final F-score on the testing data: 0.7297
+
+------------------------------------
+rfc = AdaBoostClassifier(random_state=42)
+
+param_rf = {
+    'n_estimators': [200, 500],
+    'learning_rate': [0.01, 0.1]
+}
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8561
+Final F-score on the testing data: 0.7221
+
+------------------------------------
+rfc = RandomForestClassifier(random_state=42)
+
+param_rf = {
+    'n_estimators': [500],
+    'max_features': [0.1],
+    'max_depth': [10],
+    'min_samples_split': [4],
+    'min_samples_leaf': [2]
+}
+
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8552
+Final F-score on the testing data: 0.7265
+
+-----------------------------------------------
+
+rfc = RandomForestClassifier(random_state=42)
+
+param_rf = {
+    'n_estimators': [1000],
+    'max_features': [0.1, 0.2, 0.3],
+    'max_depth': [10, 20, 30],
+}
+
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8589
+Final F-score on the testing data: 0.7337
+
+------------------------------------------------
+
+param_rf = {
+    'n_estimators': [2000],
+    'max_features': [0.1, 0.3],
+    'max_depth': [10, 20, 30],
+}
+
+Unoptimized model
+------
+Accuracy score on testing data: 0.8433
+F-score on testing data: 0.6848
+
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8586
+Final F-score on the testing data: 0.7330
+
+
+------------------------------------------------------------------
+
+rfc = RandomForestClassifier(random_state=42)
+
+param_rf = {
+    'n_estimators': [500, 1500],
+    'max_features': [0.1, 0.2, 0.3],
+    'max_depth': [10, 20, 30],
+}
+
+------
+Accuracy score on testing data: 0.8433
+F-score on testing data: 0.6848
+
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8588
+Final F-score on the testing data: 0.7334
+best estimator: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=10, max_features=0.3, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=1500, n_jobs=None,
+            oob_score=False, random_state=42, verbose=0, warm_start=False)
+
+Process finished with exit code 0
+
+
+-----------------------------------------------------------------------------
+
+dt_clf = DecisionTreeClassifier(random_state=42, max_depth=1)
+ab_clf = AdaBoostClassifier(base_estimator=dt_clf, n_estimators=5000, learning_rate=0.01)
+ab_clf = ab_clf.fit(X_train, y_train)
+importances = ab_clf.feature_importances_
+
+Final Model trained on full data
+------
+Accuracy on testing data: 0.8562
+F-score on testing data: 0.7228
+
+Final Model trained on reduced data
+------
+Accuracy on testing data: 0.8291
+F-score on testing data: 0.6641
+
+-------------------------------------------------------------------------
+
+dt_clf = DecisionTreeClassifier(random_state=42, max_depth=1)
+ab_clf = AdaBoostClassifier(base_estimator=dt_clf, n_estimators=5000, learning_rate=0.1)
+ab_clf = ab_clf.fit(X_train, y_train)
+importances = ab_clf.feature_importances_
+
+Final Model trained on full data
+------
+Accuracy on testing data: 0.8657
+F-score on testing data: 0.7421
+
+Final Model trained on reduced data
+------
+Accuracy on testing data: 0.8248
+F-score on testing data: 0.6568
+
+---------------------------------------------------------------------------------
+
+
+model = RandomForestClassifier(random_state=42, n_estimators=1500, max_features=0.3, max_depth=10)
+model = model.fit(X_train, y_train)
+importances = model.feature_importances_
+
+Final Model trained on full data
+------
+Accuracy on testing data: 0.8588
+F-score on testing data: 0.7334
+
+Final Model trained on reduced data
+------
+Accuracy on testing data: 0.8459
+F-score on testing data: 0.7022
+
+----------------------------------------------------------------------------------
+
+rfc = RandomForestClassifier(random_state=42)
+
+param_rf = {
+    'n_estimators': [500, 1000, 1500],
+    'max_features': [0.1, 0.2, 0.3],
+    'max_depth': [10, 20, 30],
+}
+
+Unoptimized model
+------
+Accuracy score on testing data: 0.8433
+F-score on testing data: 0.6848
+
+Optimized Model
+------
+Final accuracy score on the testing data: 0.8588
+Final F-score on the testing data: 0.7334
+best estimator: RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=10, max_features=0.3, max_leaf_nodes=None,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, n_estimators=1500, n_jobs=None,
+            oob_score=False, random_state=42, verbose=0, warm_start=False)
